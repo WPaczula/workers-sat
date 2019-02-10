@@ -1,8 +1,8 @@
 const cacheName = '__WorkerSAT__'
 
-console.log('HALKO')
-
 addEventListener('install', (event) => {
+  console.log('SW install')
+
   event.waitUntil(
     caches.open(cacheName).then(cache => cache.addAll(
       [
@@ -15,16 +15,37 @@ addEventListener('install', (event) => {
         '/assets/js-async.png',
         '/assets/processing.png',
         '/assets/satelite.png',
+        '/assets/activate.png',
+        '/assets/handle.png',
+        '/assets/install.png',
+        '/assets/register.png',
+        '/assets/cache.png',
         '/assets/galaxy-watching.png',
         '/assets/sw-lifecycle.png',
         '/worker.js',
         '/favicon.ico',
         '/',
         '/static.html',
-
       ],
     )),
   )
+})
+
+addEventListener('activate', (event) => {
+  console.log('SW activate')
+
+  event.waitUntil(
+    caches.keys().then(keyList => Promise.all(keyList.map((key) => {
+      if (key !== cacheName) {
+        console.log('SW removing old cache', key)
+
+        return caches.delete(key)
+      }
+      return null
+    }))),
+  )
+
+  return self.clients.claim()
 })
 
 addEventListener('fetch', (event) => {

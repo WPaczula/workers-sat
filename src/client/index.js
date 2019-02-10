@@ -20,6 +20,8 @@ hydrate(<AppWrapper />, document.getElementById('root'))
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js')
+    .then(() => console.log('SW registered'))
+    .catch(() => console.log('SW failed'))
 } else {
-  console.log('nope')
+  console.log('SW not supported')
 }

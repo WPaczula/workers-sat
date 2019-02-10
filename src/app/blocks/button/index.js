@@ -13,6 +13,7 @@ const Button = styled.button`
   cursor: pointer;
   text-transform: uppercase;
   outline: none;
+  font-size: 1em;
 
   ${hover`
     background: ${secondaryColorDark};

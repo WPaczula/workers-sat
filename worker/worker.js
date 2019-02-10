@@ -1,11 +1,9 @@
-onmessage = (d) => {
+onmessage = (message) => {
   console.log('🚀')
-  const imageData = d.data
+  const imageData = message.data
   const w = imageData.width
   const h = imageData.height
   const { data } = imageData
-
-  console.log(data)
 
   // Iterate pixel rows and columns to change red color of each.
   for (let x = 0; x < w; x += 1) {
@@ -19,4 +17,6 @@ onmessage = (d) => {
   }
 
   postMessage(imageData, [imageData.data.buffer])
+
+  terminate()
 }

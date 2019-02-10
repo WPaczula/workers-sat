@@ -10,8 +10,12 @@ const Intro = () => (
   <Slider slides={
     [
       {
+        name: 'hello',
+        children: <H1>Dzień dobry 🙋‍♂️</H1>,
+      },
+      {
         name: 'title1',
-        children: <H1>Wielowątkowość w JS? 🤔</H1>,
+        children: <Container><H1>Wielowątkowość w JS? 🤔</H1></Container>,
       },
       {
         name: '1 thread',

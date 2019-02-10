@@ -32,8 +32,18 @@ const ServiceWorker = styled(Img)`
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 4em;
+  height: 10em;
+  width: 10em;
   transform: translate(-50%, -50%);
+`
+
+const Cache = styled(Img)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 4em;
+  width: 4em;
+  transform: translate(50%, 50%);
 `
 
 const Relative = styled.div`
@@ -100,10 +110,14 @@ export default class WhatIsIt extends React.Component {
         <Relative>
           <Img src="./assets/galaxy-watching.png" />
           {
-            serviceWorkerVisible && <ServiceWorker src="./assets/satelite.png" />
+            serviceWorkerVisible
+            && <>
+              <ServiceWorker src="./assets/satelite.png" />
+              <Cache src="./assets/cache.png" />
+            </>
           }
         </Relative>
-        <Link href="https://caniuse.com/#feat=serviceworkers">⭐</Link>
+        <Link href="https://caniuse.com/#feat=serviceworkers">HTTPS⭐</Link>
         <ShowUpButton onClick={this.showServiceWorker}>Show up</ShowUpButton>
         {
         isSimulationOn && (

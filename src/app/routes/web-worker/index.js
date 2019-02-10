@@ -11,7 +11,7 @@ const WebWorkers = () => (
     [
       {
         name: 'hello',
-        children: <H1>Web Workery na ratunek! 🙌</H1>,
+        children: <H1 alone>Web Workery na ratunek! 🙌</H1>,
       },
       {
         name: 'whatIsIt',

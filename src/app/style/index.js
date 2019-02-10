@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
   width: 100%;
   display: flex;
   flex-direction: column;
+  font-size: 0.75vw;
 }
 
 * {
